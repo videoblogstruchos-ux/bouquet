@@ -358,7 +358,7 @@
       transform: scale(1.1);
     }
 
-    /* GRID DE FLORES - ADAPTADA MULTI-DISPOSITIVO */
+    /* GRID DE FLORES */
     .flowers-status-box {
       background: var(--cream);
       padding: 12px;
@@ -518,7 +518,6 @@
       overflow: hidden;
     }
 
-    /* VISUALIZACIÓN DOBLE PAPEL */
     .paper-outer-visual {
       width: 150px;
       height: 110px;
@@ -701,7 +700,6 @@
       margin-bottom: 5px;
     }
 
-    /* ADAPTACIONES ESPECÍFICAS PARA CELULARES */
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
@@ -816,7 +814,6 @@
           <div class="step-title"><span class="step-num">2</span> Elegí tus 2 Papeles Envolventes</div>
           
           <div class="paper-selection-container">
-            <!-- PAPEL 1: EXTERIOR -->
             <div class="paper-subgroup">
               <h5>1° Papel (Exterior / Capa Externa):</h5>
               <div class="color-circles" id="outerPaperGroup">
@@ -828,7 +825,6 @@
               </div>
             </div>
 
-            <!-- PAPEL 2: INTERIOR -->
             <div class="paper-subgroup">
               <h5>2° Papel (Interior / Capa Interna):</h5>
               <div class="color-circles" id="innerPaperGroup">
@@ -842,7 +838,7 @@
           </div>
         </div>
 
-        <!-- PASO 3: SELECCIÓN DE FLORES CON PRECIOS DINÁMICOS -->
+        <!-- PASO 3: SELECCIÓN DE FLORES -->
         <div class="step-group">
           <div class="step-title"><span class="step-num">3</span> Seleccioná tus Flores</div>
           <div class="flowers-status-box" id="flowerCounterStatus">
@@ -883,7 +879,7 @@
     </div>
   </section>
 
-  <!-- CARRITO DE COMPRA / RESUMEN -->
+  <!-- CARRITO DE COMPRA -->
   <section class="cart-section" id="pedido">
     <div class="section-title">
       <div class="eyebrow">Confirmación</div>
@@ -932,7 +928,6 @@
     const SPREADSHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIW1y7sZe-VMMwJOhZTzNKpdgsioowCV7p-1_gdDYj_gsOtjxIz8dIpJ4kubHUhG9iUPunOoYMvE2a/pub?output=csv';
     const WHATSAPP_NUMBER = '5493435231394';
 
-    // Estado de la Aplicación
     let catalog = [];
     let cart = [];
     
@@ -946,7 +941,7 @@
       paperInnerColor: 'Crema',
       paperInnerHex: '#faf6f0',
       selectedFlowersCount: 0,
-      flowerSelection: {} // { index: cantidad }
+      flowerSelection: {}
     };
 
     function parseStock(val) {
@@ -982,7 +977,7 @@
       const lines = csvText.trim().split('\n');
       if (lines.length < 2) return [];
 
-      // Limpiamos los encabezados (quitamos acentos, comillas y espacios extra)
+      // Normalizamos encabezados quitando comillas, espacios y acentos
       const headers = lines[0].split(',').map(h => 
         h.trim()
          .toLowerCase()
@@ -991,7 +986,6 @@
       );
       
       return lines.slice(1).map(line => {
-        // Regex para separar comas respetando comillas
         const values = line.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || line.split(',');
         let item = {};
         
@@ -1000,14 +994,19 @@
           item[header] = val;
         });
 
-        // Buscar el precio probando diferentes variaciones posibles del nombre de columna
-        const rawPrice = item.precio || item.costo || item.valor || item.price || item['precio unitario'] || 0;
+        // Búsqueda inteligente de columnas por palabra clave
+        const priceKey = headers.find(h => h.includes('precio') || h.includes('costo') || h.includes('valor') || h.includes('price'));
+        const nameKey = headers.find(h => h.includes('nombre') || h.includes('flor') || h.includes('producto') || h.includes('item'));
+        const stockKey = headers.find(h => h.includes('stock') || h.includes('cantidad') || h.includes('disponible'));
+        const imageKey = headers.find(h => h.includes('imagen') || h.includes('url') || h.includes('foto'));
+
+        const rawPrice = priceKey ? item[priceKey] : 0;
 
         return {
-          name: item.nombre || item.flor || item.producto || 'Flor',
+          name: (nameKey ? item[nameKey] : '') || 'Flor',
           price: parseNumberPrice(rawPrice),
-          stock: item.stock || item.cantidad || item.disponible || 0,
-          image: item.imagen || item.url || item.foto || ''
+          stock: stockKey ? item[stockKey] : 'si',
+          image: imageKey ? item[imageKey] : ''
         };
       });
     }
