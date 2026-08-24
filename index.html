@@ -232,7 +232,7 @@
       color: var(--brown-light);
     }
 
-    /* SECCIONES GENERALE */
+    /* SECCIONES GENERALES */
     section {
       padding: 80px 25px;
     }
@@ -256,7 +256,7 @@
       font-size: 14px;
     }
 
-    /* CATALOGO */
+    /* CATALOGO Y SELECCIÓN DE FLORES */
     .catalog-bg {
       background: var(--white);
     }
@@ -265,14 +265,14 @@
       max-width: 1200px;
       margin: auto;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 25px;
     }
 
     .flower-card {
       background: var(--cream);
       border-radius: var(--radius);
-      padding: 25px;
+      padding: 18px;
       text-align: center;
       transition: all 0.3s;
       border: 1px solid rgba(74, 62, 61, 0.04);
@@ -281,42 +281,42 @@
       justify-content: space-between;
     }
 
-    .flower-card:hover {
+    .flower-card.disabled-card {
+      opacity: 0.5;
+    }
+
+    .flower-card:hover:not(.disabled-card) {
       transform: translateY(-5px);
       box-shadow: var(--shadow-hover);
       background: var(--white);
     }
 
+    /* CONTENEDOR 1:1 CUADRADO PERFECTO PARA FOTOS DE FLORES */
     .flower-img-box {
-      height: 140px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 15px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.5);
+      margin-bottom: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 65px;
-      margin-bottom: 15px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 15px;
-      overflow: hidden;
+      font-size: 50px;
     }
 
     .flower-img-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .flower-name {
       font-family: "Cormorant Garamond", serif;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 600;
       margin-bottom: 5px;
-    }
-
-    .flower-price {
-      color: var(--pink-dark);
-      font-weight: 600;
-      margin-bottom: 12px;
-      font-size: 15px;
     }
 
     .stock-badge {
@@ -326,7 +326,7 @@
       letter-spacing: 1px;
       padding: 4px 12px;
       border-radius: 50px;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     .stock-badge.available {
@@ -339,24 +339,42 @@
       color: #a35252;
     }
 
-    .add-btn {
-      width: 100%;
-      border: none;
+    /* CONTROLES TIPO CONTADOR (+ / -) */
+    .counter-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .counter-btn {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--brown-text);
+      background: var(--white);
+      color: var(--brown-text);
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+
+    .counter-btn:hover:not(:disabled) {
       background: var(--brown-text);
       color: var(--white);
-      padding: 12px;
-      border-radius: 50px;
-      font-size: 13px;
-      transition: background 0.2s;
     }
 
-    .add-btn:hover:not(:disabled) {
-      background: var(--pink-dark);
-    }
-
-    .add-btn:disabled {
-      background: #ccc;
+    .counter-btn:disabled {
+      border-color: #ccc;
+      color: #ccc;
       cursor: not-allowed;
+    }
+
+    .flower-count {
+      font-weight: 600;
+      font-size: 15px;
+      min-width: 20px;
     }
 
     /* ARMADOR / BUILDER */
@@ -469,6 +487,17 @@
       border-color: var(--pink-accent);
     }
 
+    .flowers-status-box {
+      background: var(--cream);
+      padding: 12px 18px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--pink-dark);
+      border: 1px solid var(--pink-soft);
+    }
+
     /* PREVIEW RAMO */
     .builder-preview {
       background: var(--white);
@@ -529,6 +558,26 @@
       text-align: left;
       border-top: 1px solid rgba(74, 62, 61, 0.08);
       padding-top: 12px;
+    }
+
+    .add-btn {
+      width: 100%;
+      border: none;
+      background: var(--brown-text);
+      color: var(--white);
+      padding: 14px;
+      border-radius: 50px;
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+
+    .add-btn:hover:not(:disabled) {
+      background: var(--pink-dark);
+    }
+
+    .add-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
     }
 
     /* CART / PEDIDO */
@@ -674,7 +723,6 @@
     <nav class="nav">
       <a href="#" class="logo">bouquet<span>.</span></a>
       <div class="nav-links">
-        <a href="#catalogo">Flores</a>
         <a href="#personalizar">Armar Ramo</a>
         <a href="#pedido">Mi Pedido</a>
         <a href="#redes">Contacto</a>
@@ -691,7 +739,7 @@
     <div>
       <div class="eyebrow">Flores frescas & Exclusivas</div>
       <h1>Diseñá un ramo <em>con sentimiento.</em></h1>
-      <p>Elegí tus flores favoritas, combiná los colores del envoltorio y regalá un momento especial hecho a medida.</p>
+      <p>Elegí el tamaño, los colores del envoltorio y seleccioná la variedad exacta de flores que querés regalar.</p>
       <a href="#personalizar" class="hero-btn">Crear mi Ramo</a>
     </div>
     <div class="hero-gallery">
@@ -708,24 +756,12 @@
     </div>
   </section>
 
-  <!-- CATALOGO DESDE SPREADSHEET -->
-  <section class="catalog-bg" id="catalogo">
-    <div class="section-title">
-      <div class="eyebrow">Nuestro Jardín</div>
-      <h2>Flores Disponibles</h2>
-      <p>Seleccioná flores individuales para sumar a tu ramo o pedir por separado.</p>
-    </div>
-    <div class="flower-grid" id="flowerGrid">
-      <p style="grid-column: 1/-1; text-align: center;">Cargando catálogo de flores...</p>
-    </div>
-  </section>
-
-  <!-- PERSONALIZADOR DE RAMO -->
+  <!-- PERSONALIZADOR DE RAMO COMPLETO -->
   <section id="personalizar">
     <div class="section-title">
       <div class="eyebrow">Paso a Paso</div>
       <h2>Armá tu Bouquet</h2>
-      <p>Personalizá las dimensiones, envoltorio y dedicatoria.</p>
+      <p>Personalizá las dimensiones, envoltorio, la combinación de flores y dedicatoria.</p>
     </div>
 
     <div class="builder-container">
@@ -735,9 +771,9 @@
         <div class="step-group">
           <div class="step-title"><span class="step-num">1</span> Elegí el Tamaño</div>
           <div class="options-grid">
-            <button class="opt-btn" onclick="setSize('Pequeño', 2500, this)">Pequeño<br><small>+$2.500</small></button>
-            <button class="opt-btn active" onclick="setSize('Mediano', 4000, this)">Mediano<br><small>+$4.000</small></button>
-            <button class="opt-btn" onclick="setSize('Grande', 6000, this)">Grande<br><small>+$6.000</small></button>
+            <button class="opt-btn" onclick="setSize('Pequeño', 2500, 4, 6, this)">Pequeño (4 a 6)<br><small>+$2.500</small></button>
+            <button class="opt-btn active" onclick="setSize('Mediano', 4000, 6, 8, this)">Mediano (6 a 8)<br><small>+$4.000</small></button>
+            <button class="opt-btn" onclick="setSize('Grande', 6000, 8, 12, this)">Grande (8 a 12)<br><small>+$6.000</small></button>
           </div>
         </div>
 
@@ -753,9 +789,20 @@
           </div>
         </div>
 
-        <!-- PASO 3: DEDICATORIA -->
+        <!-- PASO 3: ELECCIÓN DE FLORES (INTEGRADO AL ARMADOR) -->
         <div class="step-group">
-          <div class="step-title"><span class="step-num">3</span> Mensaje o Tarjeta</div>
+          <div class="step-title"><span class="step-num">3</span> Seleccioná tus Flores</div>
+          <div class="flowers-status-box" id="flowerCounterStatus">
+            Flores elegidas: 0 (Mínimo: 6 - Máximo: 8)
+          </div>
+          <div class="flower-grid" id="flowerGrid">
+            <p style="grid-column: 1/-1; text-align: center;">Cargando catálogo de flores...</p>
+          </div>
+        </div>
+
+        <!-- PASO 4: DEDICATORIA -->
+        <div class="step-group">
+          <div class="step-title"><span class="step-num">4</span> Mensaje o Tarjeta</div>
           <textarea class="note-input" id="giftNote" placeholder="Escribí una dedicatoria especial para adjuntar en la tarjeta..." oninput="updatePreview()"></textarea>
         </div>
 
@@ -773,9 +820,9 @@
           <div class="preview-details" id="builderDetails">
             • Tamaño: Mediano<br>
             • Papel: Rosa Pastel<br>
-            • Flores agregadas: 0
+            • Flores seleccionadas: 0
           </div>
-          <button class="add-btn" onclick="addCustomBouquetToCart()">Agregar Ramo al Pedido</button>
+          <button class="add-btn" id="addToCartBtn" onclick="addCustomBouquetToCart()">Agregar Ramo al Pedido</button>
         </div>
       </div>
     </div>
@@ -825,7 +872,7 @@
     <p>© 2026 Bouquet Atelier. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- SCRIPT LÓGICA DE NEGOCIO -->
+  <!-- SCRIPT LÓGICA DE NEGOCIO INTEGRADA -->
   <script>
     const SPREADSHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIW1y7sZe-VMMwJOhZTzNKpdgsioowCV7p-1_gdDYj_gsOtjxIz8dIpJ4kubHUhG9iUPunOoYMvE2a/pub?output=csv';
     const WHATSAPP_NUMBER = '5493435231394';
@@ -833,13 +880,28 @@
     // Estado de la Aplicación
     let catalog = [];
     let cart = [];
+    
     let customBouquet = {
       size: 'Mediano',
       sizePrice: 4000,
+      minFlowers: 6,
+      maxFlowers: 8,
       paperColor: 'Rosa Pastel',
       paperHex: '#f7dcdb',
-      flowers: []
+      selectedFlowersCount: 0,
+      flowerSelection: {} // { index: cantidad }
     };
+
+    // Evalúa stock numérico o textos como "si", "disponible", true, etc.
+    function parseStock(val) {
+      if (typeof val === 'number') return val > 0;
+      if (typeof val === 'boolean') return val;
+      if (typeof val === 'string') {
+        const clean = val.trim().toLowerCase();
+        return clean === 'si' || clean === 'disponible' || clean === 'true' || parseInt(clean) > 0;
+      }
+      return false;
+    }
 
     // Cargar Catálogo desde Google Sheets CSV
     async function loadCatalog() {
@@ -850,14 +912,16 @@
         renderCatalog();
       } catch (err) {
         console.error("Error al cargar el catálogo:", err);
-        document.getElementById('flowerGrid').innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: red;">No se pudo cargar el catálogo de flores.</p>';
+        document.getElementById('flowerGrid').innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: red;">No se pudo cargar el catálogo de flores desde la planilla.</p>';
       }
     }
 
-    // Parser CSV simple
+    // Parser CSV tolerante
     function parseCSV(csvText) {
       const lines = csvText.trim().split('\n');
-      const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+      if (lines.length < 2) return [];
+
+      const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/^"|"$/g, ''));
       
       return lines.slice(1).map(line => {
         const values = line.split(',').map(v => v.trim().replace(/^"|"$/g, ''));
@@ -865,52 +929,83 @@
         headers.forEach((header, index) => {
           item[header] = values[index] || '';
         });
+
         return {
           name: item.nombre || item.flor || item.producto || 'Flor',
-          price: parseFloat(item.precio || item.precio_base || 0),
-          stock: parseInt(item.stock || item.cantidad || 0),
-          image: item.imagen || item.url || ''
+          stock: item.stock || item.cantidad || item.disponible || 0,
+          image: item.imagen || item.url || item.foto || ''
         };
       });
     }
 
-    // Renderizar Catálogo de Flores
+    // Renderizar Flores con Contadores (+ / -)
     function renderCatalog() {
       const grid = document.getElementById('flowerGrid');
       grid.innerHTML = '';
 
       catalog.forEach((item, index) => {
-        const isAvailable = item.stock > 0;
+        const hasStock = parseStock(item.stock);
+        const count = customBouquet.flowerSelection[index] || 0;
+
         const card = document.createElement('div');
-        card.className = 'flower-card';
+        card.className = `flower-card ${!hasStock ? 'disabled-card' : ''}`;
         card.innerHTML = `
           <div>
             <div class="flower-img-box">
               ${item.image ? `<img src="${item.image}" alt="${item.name}">` : '🌸'}
             </div>
             <div class="flower-name">${item.name}</div>
-            <div class="flower-price">$${item.price.toLocaleString('es-AR')}</div>
-            <span class="stock-badge ${isAvailable ? 'available' : 'out-of-stock'}">
-              ${isAvailable ? `Stock: ${item.stock}` : 'Sin Stock'}
+            <span class="stock-badge ${hasStock ? 'available' : 'out-of-stock'}">
+              ${hasStock ? 'Disponible' : 'Sin Stock'}
             </span>
           </div>
-          <button class="add-btn" ${!isAvailable ? 'disabled' : ''} onclick="addSingleFlowerToCart(${index})">
-            ${isAvailable ? 'Agregar al Pedido' : 'Agotado'}
-          </button>
+          
+          <div class="counter-controls">
+            <button class="counter-btn" onclick="changeFlowerQty(${index}, -1)" ${count === 0 ? 'disabled' : ''}>-</button>
+            <span class="flower-count">${count}</span>
+            <button class="counter-btn" onclick="changeFlowerQty(${index}, 1)" ${!hasStock || customBouquet.selectedFlowersCount >= customBouquet.maxFlowers ? 'disabled' : ''}>+</button>
+          </div>
         `;
         grid.appendChild(card);
       });
+
+      updateCounterUI();
     }
 
-    // Lógica del Armador de Ramos
-    function setSize(name, price, btn) {
-      customBouquet.size = name;
-      customBouquet.sizePrice = price;
-      document.querySelectorAll('.step-group:nth-child(1) .opt-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+    // Modificar Cantidad de Flores
+    function changeFlowerQty(index, delta) {
+      const current = customBouquet.flowerSelection[index] || 0;
+      const newQty = current + delta;
+
+      if (newQty < 0) return;
+      if (delta > 0 && customBouquet.selectedFlowersCount >= customBouquet.maxFlowers) return;
+
+      customBouquet.flowerSelection[index] = newQty;
+      customBouquet.selectedFlowersCount += delta;
+
+      renderCatalog();
       updatePreview();
     }
 
+    // Configurar Tamaño
+    function setSize(name, price, min, max, btn) {
+      customBouquet.size = name;
+      customBouquet.sizePrice = price;
+      customBouquet.minFlowers = min;
+      customBouquet.maxFlowers = max;
+
+      // Reiniciar selección de flores si se cambia de tamaño
+      customBouquet.selectedFlowersCount = 0;
+      customBouquet.flowerSelection = {};
+
+      document.querySelectorAll('.step-group:nth-child(1) .opt-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      renderCatalog();
+      updatePreview();
+    }
+
+    // Configurar Envoltorio
     function setPaper(name, hex, btn) {
       customBouquet.paperColor = name;
       customBouquet.paperHex = hex;
@@ -919,43 +1014,70 @@
       updatePreview();
     }
 
+    // Actualizar Estado del Contador e Interfaz
+    function updateCounterUI() {
+      const status = document.getElementById('flowerCounterStatus');
+      status.innerText = `Flores elegidas: ${customBouquet.selectedFlowersCount} (Mínimo: ${customBouquet.minFlowers} - Máximo: ${customBouquet.maxFlowers})`;
+
+      const addBtn = document.getElementById('addToCartBtn');
+      if (customBouquet.selectedFlowersCount < customBouquet.minFlowers) {
+        addBtn.disabled = true;
+        addBtn.innerText = `Elegí al menos ${customBouquet.minFlowers} flores`;
+      } else {
+        addBtn.disabled = false;
+        addBtn.innerText = 'Agregar Ramo al Pedido';
+      }
+    }
+
+    // Actualizar Vista Previa del Ramo
     function updatePreview() {
       document.getElementById('visualPaper').style.background = customBouquet.paperHex;
       const note = document.getElementById('giftNote').value;
       const total = customBouquet.sizePrice;
 
+      // Construir resumen de flores elegidas
+      let flowerDetailsList = [];
+      for (const [idx, qty] of Object.entries(customBouquet.flowerSelection)) {
+        if (qty > 0 && catalog[idx]) {
+          flowerDetailsList.push(`${qty}x ${catalog[idx].name}`);
+        }
+      }
+
+      const flowersSummary = flowerDetailsList.length > 0 ? flowerDetailsList.join(', ') : 'Sin flores';
+
       document.getElementById('builderPrice').innerText = `$${total.toLocaleString('es-AR')}`;
       document.getElementById('builderDetails').innerHTML = `
         • Tamaño: ${customBouquet.size}<br>
         • Papel: ${customBouquet.paperColor}<br>
+        • Flores: ${flowersSummary}<br>
         • Dedicatoria: ${note ? '"' + note + '"' : 'Sin nota'}
       `;
     }
 
-    // Agregar Ramo Personalizado al Carrito
+    // Agregar Ramo al Carrito
     function addCustomBouquetToCart() {
+      if (customBouquet.selectedFlowersCount < customBouquet.minFlowers) {
+        alert(`Por favor, elegí al menos ${customBouquet.minFlowers} flores para este tamaño de ramo.`);
+        return;
+      }
+
       const note = document.getElementById('giftNote').value;
+      let selectedList = [];
+      for (const [idx, qty] of Object.entries(customBouquet.flowerSelection)) {
+        if (qty > 0 && catalog[idx]) {
+          selectedList.push(`${qty} ${catalog[idx].name}`);
+        }
+      }
+
       const bouquetItem = {
         title: `Ramo Personalizado (${customBouquet.size})`,
-        desc: `Papel: ${customBouquet.paperColor} ${note ? '| Nota: "' + note + '"' : ''}`,
+        desc: `Flores: ${selectedList.join(', ')} | Papel: ${customBouquet.paperColor} ${note ? '| Nota: "' + note + '"' : ''}`,
         price: customBouquet.sizePrice
       };
+
       cart.push(bouquetItem);
       updateCartUI();
       scrollToSection('pedido');
-    }
-
-    // Agregar Flor Individual al Carrito
-    function addSingleFlowerToCart(index) {
-      const flower = catalog[index];
-      if (flower.stock <= 0) return;
-
-      cart.push({
-        title: flower.name,
-        desc: 'Flor individual de catálogo',
-        price: flower.price
-      });
-      updateCartUI();
     }
 
     // Actualizar UI del Carrito
@@ -1001,7 +1123,7 @@
     // Enviar Pedido por WhatsApp
     function sendWhatsApp() {
       if (cart.length === 0) {
-        alert("Agregá al menos un elemento a tu pedido antes de confirmar.");
+        alert("Agregá tu ramo al pedido antes de confirmar por WhatsApp.");
         return;
       }
 
