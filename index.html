@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Bouquet Atelier — Flores & Detalles</title>
   <meta name="description" content="Bouquet Atelier — Diseñá tu ramo de flores personalizado. Elegí el tamaño, papel envolvente y tus flores favoritas.">
 
@@ -48,8 +48,9 @@
       background: var(--cream);
       color: var(--brown-text);
       font-family: "DM Sans", sans-serif;
-      line-height: 1.6;
+      line-height: 1.5;
       overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
     }
 
     button, input, textarea {
@@ -70,7 +71,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(250, 246, 240, 0.92);
+      background: rgba(250, 246, 240, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(74, 62, 61, 0.06);
     }
@@ -78,7 +79,7 @@
     .nav {
       max-width: 1200px;
       margin: auto;
-      padding: 18px 25px;
+      padding: 15px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -86,9 +87,9 @@
 
     .logo {
       font-family: "Cormorant Garamond", serif;
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 600;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
     }
 
     .logo span {
@@ -97,13 +98,8 @@
 
     .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 25px;
       font-size: 14px;
-      letter-spacing: 0.5px;
-    }
-
-    .nav-links a {
-      transition: color 0.2s;
     }
 
     .nav-links a:hover {
@@ -114,18 +110,17 @@
       border: none;
       background: var(--brown-text);
       color: var(--white);
-      padding: 10px 22px;
+      padding: 8px 18px;
       border-radius: 50px;
       font-size: 13px;
-      transition: all 0.3s ease;
       display: flex;
       align-items: center;
       gap: 8px;
+      transition: all 0.2s;
     }
 
     .cart-btn:hover {
       background: var(--pink-dark);
-      transform: translateY(-2px);
     }
 
     .cart-badge {
@@ -145,28 +140,28 @@
     .hero {
       max-width: 1200px;
       margin: auto;
-      padding: 70px 25px;
+      padding: 40px 20px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 30px;
       align-items: center;
     }
 
     .eyebrow {
       text-transform: uppercase;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       font-size: 11px;
       font-weight: 600;
       color: var(--pink-dark);
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .hero h1 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(50px, 6vw, 85px);
-      line-height: 0.95;
+      font-size: clamp(38px, 5vw, 75px);
+      line-height: 1;
       font-weight: 500;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .hero h1 em {
@@ -177,7 +172,7 @@
     .hero p {
       color: var(--brown-light);
       max-width: 450px;
-      margin-bottom: 35px;
+      margin-bottom: 25px;
       font-size: 15px;
     }
 
@@ -185,7 +180,7 @@
       display: inline-block;
       background: var(--brown-text);
       color: var(--white);
-      padding: 14px 32px;
+      padding: 12px 28px;
       border-radius: 50px;
       font-size: 14px;
       transition: all 0.3s;
@@ -194,7 +189,6 @@
     .hero-btn:hover {
       background: var(--pink-dark);
       transform: translateY(-2px);
-      box-shadow: var(--shadow-soft);
     }
 
     .hero-gallery {
@@ -206,25 +200,25 @@
     .hero-card {
       background: var(--cream-card);
       border-radius: 18px;
-      padding: 30px;
+      padding: 22px 15px;
       text-align: center;
       box-shadow: var(--shadow-soft);
       border: 1px solid rgba(255, 255, 255, 0.6);
     }
 
     .hero-card:nth-child(2) {
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     .hero-card-icon {
-      font-size: 40px;
-      margin-bottom: 10px;
+      font-size: 32px;
+      margin-bottom: 8px;
     }
 
     .hero-card h3 {
       font-family: "Cormorant Garamond", serif;
-      font-size: 22px;
-      margin-bottom: 5px;
+      font-size: 20px;
+      margin-bottom: 4px;
     }
 
     .hero-card p {
@@ -234,147 +228,26 @@
 
     /* SECCIONES GENERALES */
     section {
-      padding: 80px 25px;
+      padding: 50px 20px;
     }
 
     .section-title {
       text-align: center;
       max-width: 600px;
-      margin: 0 auto 50px;
+      margin: 0 auto 35px;
     }
 
     .section-title h2 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(36px, 4vw, 55px);
+      font-size: clamp(32px, 4vw, 48px);
       font-weight: 500;
       line-height: 1.1;
     }
 
     .section-title p {
       color: var(--brown-light);
-      margin-top: 15px;
-      font-size: 14px;
-    }
-
-    /* CATALOGO Y SELECCIÓN DE FLORES */
-    .catalog-bg {
-      background: var(--white);
-    }
-
-    .flower-grid {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 25px;
-    }
-
-    .flower-card {
-      background: var(--cream);
-      border-radius: var(--radius);
-      padding: 18px;
-      text-align: center;
-      transition: all 0.3s;
-      border: 1px solid rgba(74, 62, 61, 0.04);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .flower-card.disabled-card {
-      opacity: 0.5;
-    }
-
-    .flower-card:hover:not(.disabled-card) {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-hover);
-      background: var(--white);
-    }
-
-    /* CONTENEDOR 1:1 CUADRADO PERFECTO PARA FOTOS DE FLORES */
-    .flower-img-box {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 15px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.5);
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 50px;
-    }
-
-    .flower-img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .flower-name {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-
-    .stock-badge {
-      display: inline-block;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 4px 12px;
-      border-radius: 50px;
-      margin-bottom: 12px;
-    }
-
-    .stock-badge.available {
-      background: var(--sage);
-      color: var(--sage-dark);
-    }
-
-    .stock-badge.out-of-stock {
-      background: #f3dada;
-      color: #a35252;
-    }
-
-    /* CONTROLES TIPO CONTADOR (+ / -) */
-    .counter-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
       margin-top: 10px;
-    }
-
-    .counter-btn {
-      width: 32px;
-      height: 32px;
-      border: 1px solid var(--brown-text);
-      background: var(--white);
-      color: var(--brown-text);
-      border-radius: 50%;
-      font-weight: bold;
-      font-size: 16px;
-      transition: all 0.2s;
-    }
-
-    .counter-btn:hover:not(:disabled) {
-      background: var(--brown-text);
-      color: var(--white);
-    }
-
-    .counter-btn:disabled {
-      border-color: #ccc;
-      color: #ccc;
-      cursor: not-allowed;
-    }
-
-    .flower-count {
-      font-weight: 600;
-      font-size: 15px;
-      min-width: 20px;
+      font-size: 14px;
     }
 
     /* ARMADOR / BUILDER */
@@ -382,20 +255,20 @@
       max-width: 1200px;
       margin: auto;
       display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 40px;
+      grid-template-columns: 1fr 380px;
+      gap: 30px;
       align-items: start;
     }
 
     .builder-steps {
       background: var(--white);
-      padding: 40px;
+      padding: 30px 20px;
       border-radius: var(--radius);
       box-shadow: var(--shadow-soft);
     }
 
     .step-group {
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
 
     .step-group:last-child {
@@ -404,8 +277,8 @@
 
     .step-title {
       font-family: "Cormorant Garamond", serif;
-      font-size: 26px;
-      margin-bottom: 18px;
+      font-size: 24px;
+      margin-bottom: 15px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -414,10 +287,10 @@
     .step-num {
       background: var(--pink-soft);
       color: var(--brown-text);
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
-      font-size: 13px;
+      font-size: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -426,18 +299,18 @@
 
     .options-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
     }
 
     .opt-btn {
       border: 1.5px solid rgba(74, 62, 61, 0.1);
       background: var(--cream);
-      padding: 14px;
-      border-radius: 14px;
+      padding: 12px 8px;
+      border-radius: 12px;
       text-align: center;
       transition: all 0.2s;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .opt-btn:hover {
@@ -450,18 +323,32 @@
       border-color: var(--brown-text);
     }
 
+    /* ELECCIÓN DE DOS PAPELES */
+    .paper-selection-container {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .paper-subgroup h5 {
+      font-size: 13px;
+      color: var(--brown-light);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
     .color-circles {
       display: flex;
-      gap: 15px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
     .color-btn {
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       border: 2px solid var(--white);
-      outline: 2px solid rgba(74, 62, 61, 0.1);
+      outline: 2px solid rgba(74, 62, 61, 0.15);
       transition: all 0.2s;
       cursor: pointer;
     }
@@ -471,11 +358,128 @@
       transform: scale(1.1);
     }
 
+    /* GRID DE FLORES - ADAPTADA MULTI-DISPOSITIVO */
+    .flowers-status-box {
+      background: var(--cream);
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--pink-dark);
+      border: 1px solid var(--pink-soft);
+      text-align: center;
+    }
+
+    .flower-grid {
+      display: grid;
+      grid-template-columns: repeat( auto-fill, minmax(130px, 1fr) );
+      gap: 15px;
+    }
+
+    .flower-card {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 12px;
+      text-align: center;
+      transition: all 0.2s;
+      border: 1px solid rgba(74, 62, 61, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .flower-card.disabled-card {
+      opacity: 0.5;
+    }
+
+    .flower-img-box {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.6);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+
+    .flower-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .flower-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .stock-badge {
+      display: inline-block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 2px 8px;
+      border-radius: 50px;
+      margin-bottom: 8px;
+    }
+
+    .stock-badge.available {
+      background: var(--sage);
+      color: var(--sage-dark);
+    }
+
+    .stock-badge.out-of-stock {
+      background: #f3dada;
+      color: #a35252;
+    }
+
+    .counter-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 5px;
+    }
+
+    .counter-btn {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--brown-text);
+      background: var(--white);
+      color: var(--brown-text);
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .counter-btn:disabled {
+      border-color: #ddd;
+      color: #ddd;
+      cursor: not-allowed;
+    }
+
+    .flower-count {
+      font-weight: 600;
+      font-size: 14px;
+      min-width: 16px;
+    }
+
     .note-input {
       width: 100%;
-      padding: 15px;
+      padding: 12px;
       border: 1.5px solid rgba(74, 62, 61, 0.1);
-      border-radius: 14px;
+      border-radius: 12px;
       background: var(--cream);
       resize: vertical;
       min-height: 80px;
@@ -483,81 +487,81 @@
       font-size: 13px;
     }
 
-    .note-input:focus {
-      border-color: var(--pink-accent);
-    }
-
-    .flowers-status-box {
-      background: var(--cream);
-      padding: 12px 18px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      font-weight: 500;
-      font-size: 14px;
-      color: var(--pink-dark);
-      border: 1px solid var(--pink-soft);
-    }
-
-    /* PREVIEW RAMO */
+    /* PREVIEW RAMO & PAPELES */
     .builder-preview {
       background: var(--white);
-      padding: 30px;
+      padding: 25px 20px;
       border-radius: var(--radius);
       box-shadow: var(--shadow-soft);
       position: sticky;
-      top: 100px;
+      top: 90px;
       text-align: center;
     }
 
     .preview-canvas {
-      height: 220px;
+      height: 200px;
       background: var(--cream);
       border-radius: 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       position: relative;
       overflow: hidden;
     }
 
-    .paper-visual {
-      width: 140px;
-      height: 100px;
+    /* VISUALIZACIÓN DOBLE PAPEL */
+    .paper-outer-visual {
+      width: 150px;
+      height: 110px;
       background: #f7dcdb;
+      clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+      position: absolute;
+      bottom: 15px;
+      transition: background 0.3s ease;
+      z-index: 1;
+    }
+
+    .paper-inner-visual {
+      width: 120px;
+      height: 90px;
+      background: #faf6f0;
       clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
       position: absolute;
-      bottom: 20px;
-      transition: background 0.3s;
+      bottom: 25px;
+      transition: background 0.3s ease;
+      z-index: 2;
+      box-shadow: 0 -3px 10px rgba(0,0,0,0.05);
     }
 
     .flowers-visual {
-      font-size: 40px;
-      z-index: 2;
-      margin-bottom: 20px;
-      letter-spacing: -10px;
+      font-size: 42px;
+      z-index: 3;
+      margin-bottom: 30px;
+      letter-spacing: -8px;
     }
 
     .preview-summary h4 {
       font-family: "Cormorant Garamond", serif;
-      font-size: 24px;
+      font-size: 22px;
     }
 
     .preview-price {
-      font-size: 28px;
+      font-size: 26px;
       color: var(--pink-dark);
       font-weight: 600;
-      margin: 10px 0;
+      margin: 6px 0;
     }
 
     .preview-details {
       font-size: 12px;
       color: var(--brown-light);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       text-align: left;
       border-top: 1px solid rgba(74, 62, 61, 0.08);
-      padding-top: 12px;
+      padding-top: 10px;
+      line-height: 1.6;
     }
 
     .add-btn {
@@ -580,7 +584,7 @@
       cursor: not-allowed;
     }
 
-    /* CART / PEDIDO */
+    /* CARRITO DE COMPRA / RESUMEN */
     .cart-section {
       background: var(--white);
     }
@@ -589,7 +593,7 @@
       max-width: 800px;
       margin: auto;
       background: var(--cream);
-      padding: 40px;
+      padding: 30px 20px;
       border-radius: var(--radius);
       box-shadow: var(--shadow-soft);
     }
@@ -597,47 +601,47 @@
     .cart-item {
       display: grid;
       grid-template-columns: 1fr auto auto;
-      gap: 20px;
+      gap: 15px;
       align-items: center;
-      padding: 15px 0;
+      padding: 12px 0;
       border-bottom: 1px solid rgba(74, 62, 61, 0.08);
     }
 
     .cart-item-title {
       font-family: "Cormorant Garamond", serif;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
     }
 
     .cart-item-desc {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--brown-light);
     }
 
     .cart-item-price {
       font-weight: 600;
+      font-size: 14px;
     }
 
     .remove-item {
       background: none;
       border: none;
       color: #c86a6a;
-      font-size: 18px;
-      cursor: pointer;
+      font-size: 16px;
     }
 
     .cart-total {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 30px;
-      padding-top: 20px;
+      margin-top: 25px;
+      padding-top: 15px;
       border-top: 2px dashed rgba(74, 62, 61, 0.15);
     }
 
     .cart-total span {
       font-family: "Cormorant Garamond", serif;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 600;
     }
 
@@ -646,21 +650,15 @@
       background: #25d366;
       color: var(--white);
       border: none;
-      padding: 16px;
+      padding: 14px;
       border-radius: 50px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
-      margin-top: 25px;
+      margin-top: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      transition: transform 0.2s, background 0.2s;
-    }
-
-    .ws-btn:hover {
-      background: #1eb856;
-      transform: translateY(-2px);
+      gap: 8px;
     }
 
     /* REDES SOCIALES & FOOTER */
@@ -671,47 +669,76 @@
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
     .social-card {
       background: var(--white);
-      padding: 15px 30px;
+      padding: 12px 22px;
       border-radius: 50px;
-      font-size: 14px;
+      font-size: 13px;
       box-shadow: var(--shadow-soft);
-      transition: transform 0.2s;
-    }
-
-    .social-card:hover {
-      transform: translateY(-3px);
-      color: var(--pink-dark);
     }
 
     footer {
       background: var(--brown-text);
       color: rgba(255, 255, 255, 0.7);
       text-align: center;
-      padding: 40px 25px;
-      font-size: 13px;
+      padding: 30px 20px;
+      font-size: 12px;
     }
 
     footer .logo {
       color: var(--white);
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
-    /* RESPONSIVE */
+    /* ADAPTACIONES ESPECÍFICAS PARA CELULARES (MOBILE-FIRST BREAKPOINTS) */
     @media (max-width: 900px) {
-      .hero, .builder-container {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        text-align: center;
+      }
+      .hero p {
+        margin: 0 auto 20px;
+      }
+      .hero-gallery {
+        margin-top: 10px;
+      }
+      .hero-card:nth-child(2) {
+        margin-top: 0;
+      }
+      
+      .builder-container {
         grid-template-columns: 1fr;
       }
       .builder-preview {
         position: static;
+        order: 2;
       }
       .nav-links {
         display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .flower-grid {
+        grid-template-columns: repeat(2, 1fr); /* Exactamente 2 tarjetas por fila en celular */
+        gap: 10px;
+      }
+      .flower-card {
+        padding: 10px;
+      }
+      .flower-name {
+        font-size: 16px;
+      }
+      .options-grid {
+        grid-template-columns: 1fr; /* Tamaños apilados verticalmente para facilitar tap */
+      }
+      .builder-steps {
+        padding: 20px 15px;
       }
     }
   </style>
@@ -739,7 +766,7 @@
     <div>
       <div class="eyebrow">Flores frescas & Exclusivas</div>
       <h1>Diseñá un ramo <em>con sentimiento.</em></h1>
-      <p>Elegí el tamaño, los colores del envoltorio y seleccioná la variedad exacta de flores que querés regalar.</p>
+      <p>Elegí el tamaño, los papeles envolventes y seleccioná la variedad exacta de flores que querés regalar.</p>
       <a href="#personalizar" class="hero-btn">Crear mi Ramo</a>
     </div>
     <div class="hero-gallery">
@@ -761,7 +788,7 @@
     <div class="section-title">
       <div class="eyebrow">Paso a Paso</div>
       <h2>Armá tu Bouquet</h2>
-      <p>Personalizá las dimensiones, envoltorio, la combinación de flores y dedicatoria.</p>
+      <p>Personalizá las dimensiones, papeles envolventes, la combinación de flores y dedicatoria.</p>
     </div>
 
     <div class="builder-container">
@@ -777,19 +804,38 @@
           </div>
         </div>
 
-        <!-- PASO 2: PAPEL -->
+        <!-- PASO 2: SELECCIÓN DE DOS PAPELES ENVOLVENTES -->
         <div class="step-group">
-          <div class="step-title"><span class="step-num">2</span> Color de Papel Envolvente</div>
-          <div class="color-circles">
-            <button class="color-btn active" style="background: #f7dcdb;" onclick="setPaper('Rosa Pastel', '#f7dcdb', this)" title="Rosa Pastel"></button>
-            <button class="color-btn" style="background: #dbe3d5;" onclick="setPaper('Verde Salvia', '#dbe3d5', this)" title="Verde Salvia"></button>
-            <button class="color-btn" style="background: #faf6f0;" onclick="setPaper('Crema', '#faf6f0', this)" title="Crema"></button>
-            <button class="color-btn" style="background: #e2d7e8;" onclick="setPaper('Lavanda', '#e2d7e8', this)" title="Lavanda"></button>
-            <button class="color-btn" style="background: #4a3e3d;" onclick="setPaper('Kraft / Moka', '#4a3e3d', this)" title="Kraft Moka"></button>
+          <div class="step-title"><span class="step-num">2</span> Elegí tus 2 Papeles Envolventes</div>
+          
+          <div class="paper-selection-container">
+            <!-- PAPEL 1: EXTERIOR -->
+            <div class="paper-subgroup">
+              <h5>1° Papel (Exterior / Capa Externa):</h5>
+              <div class="color-circles" id="outerPaperGroup">
+                <button class="color-btn active" style="background: #f7dcdb;" onclick="setPaper('outer', 'Rosa Pastel', '#f7dcdb', this)" title="Rosa Pastel"></button>
+                <button class="color-btn" style="background: #dbe3d5;" onclick="setPaper('outer', 'Verde Salvia', '#dbe3d5', this)" title="Verde Salvia"></button>
+                <button class="color-btn" style="background: #faf6f0;" onclick="setPaper('outer', 'Crema', '#faf6f0', this)" title="Crema"></button>
+                <button class="color-btn" style="background: #e2d7e8;" onclick="setPaper('outer', 'Lavanda', '#e2d7e8', this)" title="Lavanda"></button>
+                <button class="color-btn" style="background: #4a3e3d;" onclick="setPaper('outer', 'Kraft / Moka', '#4a3e3d', this)" title="Kraft Moka"></button>
+              </div>
+            </div>
+
+            <!-- PAPEL 2: INTERIOR -->
+            <div class="paper-subgroup">
+              <h5>2° Papel (Interior / Capa Interna):</h5>
+              <div class="color-circles" id="innerPaperGroup">
+                <button class="color-btn" style="background: #f7dcdb;" onclick="setPaper('inner', 'Rosa Pastel', '#f7dcdb', this)" title="Rosa Pastel"></button>
+                <button class="color-btn" style="background: #dbe3d5;" onclick="setPaper('inner', 'Verde Salvia', '#dbe3d5', this)" title="Verde Salvia"></button>
+                <button class="color-btn active" style="background: #faf6f0;" onclick="setPaper('inner', 'Crema', '#faf6f0', this)" title="Crema"></button>
+                <button class="color-btn" style="background: #e2d7e8;" onclick="setPaper('inner', 'Lavanda', '#e2d7e8', this)" title="Lavanda"></button>
+                <button class="color-btn" style="background: #4a3e3d;" onclick="setPaper('inner', 'Kraft / Moka', '#4a3e3d', this)" title="Kraft Moka"></button>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- PASO 3: ELECCIÓN DE FLORES (INTEGRADO AL ARMADOR) -->
+        <!-- PASO 3: SELECCIÓN DE FLORES -->
         <div class="step-group">
           <div class="step-title"><span class="step-num">3</span> Seleccioná tus Flores</div>
           <div class="flowers-status-box" id="flowerCounterStatus">
@@ -812,14 +858,16 @@
       <div class="builder-preview">
         <div class="preview-canvas">
           <div class="flowers-visual" id="visualFlowers">💐</div>
-          <div class="paper-visual" id="visualPaper"></div>
+          <div class="paper-inner-visual" id="visualPaperInner"></div>
+          <div class="paper-outer-visual" id="visualPaperOuter"></div>
         </div>
         <div class="preview-summary">
           <h4>Ramo Personalizado</h4>
           <div class="preview-price" id="builderPrice">$4.000</div>
           <div class="preview-details" id="builderDetails">
             • Tamaño: Mediano<br>
-            • Papel: Rosa Pastel<br>
+            • Papel Ext: Rosa Pastel<br>
+            • Papel Int: Crema<br>
             • Flores seleccionadas: 0
           </div>
           <button class="add-btn" id="addToCartBtn" onclick="addCustomBouquetToCart()">Agregar Ramo al Pedido</button>
@@ -872,7 +920,7 @@
     <p>© 2026 Bouquet Atelier. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- SCRIPT LÓGICA DE NEGOCIO INTEGRADA -->
+  <!-- SCRIPT LÓGICA DE NEGOCIO -->
   <script>
     const SPREADSHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIW1y7sZe-VMMwJOhZTzNKpdgsioowCV7p-1_gdDYj_gsOtjxIz8dIpJ4kubHUhG9iUPunOoYMvE2a/pub?output=csv';
     const WHATSAPP_NUMBER = '5493435231394';
@@ -886,13 +934,14 @@
       sizePrice: 4000,
       minFlowers: 6,
       maxFlowers: 8,
-      paperColor: 'Rosa Pastel',
-      paperHex: '#f7dcdb',
+      paperOuterColor: 'Rosa Pastel',
+      paperOuterHex: '#f7dcdb',
+      paperInnerColor: 'Crema',
+      paperInnerHex: '#faf6f0',
       selectedFlowersCount: 0,
       flowerSelection: {} // { index: cantidad }
     };
 
-    // Evalúa stock numérico o textos como "si", "disponible", true, etc.
     function parseStock(val) {
       if (typeof val === 'number') return val > 0;
       if (typeof val === 'boolean') return val;
@@ -903,7 +952,6 @@
       return false;
     }
 
-    // Cargar Catálogo desde Google Sheets CSV
     async function loadCatalog() {
       try {
         const res = await fetch(SPREADSHEET_CSV_URL);
@@ -916,7 +964,6 @@
       }
     }
 
-    // Parser CSV tolerante
     function parseCSV(csvText) {
       const lines = csvText.trim().split('\n');
       if (lines.length < 2) return [];
@@ -938,7 +985,6 @@
       });
     }
 
-    // Renderizar Flores con Contadores (+ / -)
     function renderCatalog() {
       const grid = document.getElementById('flowerGrid');
       grid.innerHTML = '';
@@ -972,7 +1018,6 @@
       updateCounterUI();
     }
 
-    // Modificar Cantidad de Flores
     function changeFlowerQty(index, delta) {
       const current = customBouquet.flowerSelection[index] || 0;
       const newQty = current + delta;
@@ -987,14 +1032,12 @@
       updatePreview();
     }
 
-    // Configurar Tamaño
     function setSize(name, price, min, max, btn) {
       customBouquet.size = name;
       customBouquet.sizePrice = price;
       customBouquet.minFlowers = min;
       customBouquet.maxFlowers = max;
 
-      // Reiniciar selección de flores si se cambia de tamaño
       customBouquet.selectedFlowersCount = 0;
       customBouquet.flowerSelection = {};
 
@@ -1005,16 +1048,21 @@
       updatePreview();
     }
 
-    // Configurar Envoltorio
-    function setPaper(name, hex, btn) {
-      customBouquet.paperColor = name;
-      customBouquet.paperHex = hex;
-      document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+    // Manejo de Selección de Papeles (Exterior / Interior)
+    function setPaper(type, name, hex, btn) {
+      if (type === 'outer') {
+        customBouquet.paperOuterColor = name;
+        customBouquet.paperOuterHex = hex;
+        document.querySelectorAll('#outerPaperGroup .color-btn').forEach(b => b.classList.remove('active'));
+      } else {
+        customBouquet.paperInnerColor = name;
+        customBouquet.paperInnerHex = hex;
+        document.querySelectorAll('#innerPaperGroup .color-btn').forEach(b => b.classList.remove('active'));
+      }
       btn.classList.add('active');
       updatePreview();
     }
 
-    // Actualizar Estado del Contador e Interfaz
     function updateCounterUI() {
       const status = document.getElementById('flowerCounterStatus');
       status.innerText = `Flores elegidas: ${customBouquet.selectedFlowersCount} (Mínimo: ${customBouquet.minFlowers} - Máximo: ${customBouquet.maxFlowers})`;
@@ -1029,13 +1077,13 @@
       }
     }
 
-    // Actualizar Vista Previa del Ramo
     function updatePreview() {
-      document.getElementById('visualPaper').style.background = customBouquet.paperHex;
+      document.getElementById('visualPaperOuter').style.background = customBouquet.paperOuterHex;
+      document.getElementById('visualPaperInner').style.background = customBouquet.paperInnerHex;
+
       const note = document.getElementById('giftNote').value;
       const total = customBouquet.sizePrice;
 
-      // Construir resumen de flores elegidas
       let flowerDetailsList = [];
       for (const [idx, qty] of Object.entries(customBouquet.flowerSelection)) {
         if (qty > 0 && catalog[idx]) {
@@ -1048,13 +1096,13 @@
       document.getElementById('builderPrice').innerText = `$${total.toLocaleString('es-AR')}`;
       document.getElementById('builderDetails').innerHTML = `
         • Tamaño: ${customBouquet.size}<br>
-        • Papel: ${customBouquet.paperColor}<br>
+        • Papel Ext: ${customBouquet.paperOuterColor}<br>
+        • Papel Int: ${customBouquet.paperInnerColor}<br>
         • Flores: ${flowersSummary}<br>
         • Dedicatoria: ${note ? '"' + note + '"' : 'Sin nota'}
       `;
     }
 
-    // Agregar Ramo al Carrito
     function addCustomBouquetToCart() {
       if (customBouquet.selectedFlowersCount < customBouquet.minFlowers) {
         alert(`Por favor, elegí al menos ${customBouquet.minFlowers} flores para este tamaño de ramo.`);
@@ -1071,7 +1119,7 @@
 
       const bouquetItem = {
         title: `Ramo Personalizado (${customBouquet.size})`,
-        desc: `Flores: ${selectedList.join(', ')} | Papel: ${customBouquet.paperColor} ${note ? '| Nota: "' + note + '"' : ''}`,
+        desc: `Flores: ${selectedList.join(', ')} | Papel Ext: ${customBouquet.paperOuterColor} | Papel Int: ${customBouquet.paperInnerColor} ${note ? '| Nota: "' + note + '"' : ''}`,
         price: customBouquet.sizePrice
       };
 
@@ -1080,7 +1128,6 @@
       scrollToSection('pedido');
     }
 
-    // Actualizar UI del Carrito
     function updateCartUI() {
       const container = document.getElementById('cartItems');
       const badge = document.getElementById('cartBadge');
@@ -1120,7 +1167,6 @@
       updateCartUI();
     }
 
-    // Enviar Pedido por WhatsApp
     function sendWhatsApp() {
       if (cart.length === 0) {
         alert("Agregá tu ramo al pedido antes de confirmar por WhatsApp.");
@@ -1146,7 +1192,6 @@
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Inicialización
     window.onload = () => {
       loadCatalog();
       updatePreview();
