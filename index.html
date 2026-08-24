@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bouquet Atelier — Flores & Detalles</title>
+  <meta name="description" content="Bouquet Atelier — Diseñá tu ramo de flores personalizado. Elegí el tamaño, papel envolvente y tus flores favoritas.">
+
+  <!-- Fuentes de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Paleta de colores pastel & aesthetic */
+      --cream: #faf6f0;
+      --cream-card: #f5efe6;
+      --white: #ffffff;
+      
+      --pink-soft: #f7dcdb;
+      --pink-accent: #c88a8d;
+      --pink-dark: #8e585a;
+
+      --sage: #dbe3d5;
+      --sage-dark: #627259;
+
+      --brown-text: #4a3e3d;
+      --brown-light: #7a6e6d;
+
+      --shadow-soft: 0 10px 30px rgba(74, 62, 61, 0.06);
+      --shadow-hover: 0 15px 40px rgba(74, 62, 61, 0.12);
+      
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--brown-text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    button, input, textarea {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(250, 246, 240, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(74, 62, 61, 0.06);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+    }
+
+    .logo span {
+      color: var(--pink-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink-accent);
+    }
+
+    .cart-btn {
+      border: none;
+      background: var(--brown-text);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 13px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cart-btn:hover {
+      background: var(--pink-dark);
+      transform: translateY(-2px);
+    }
+
+    .cart-badge {
+      background: var(--pink-soft);
+      color: var(--brown-text);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 25px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--pink-dark);
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(50px, 6vw, 85px);
+      line-height: 0.95;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 em {
+      color: var(--pink-accent);
+      font-style: italic;
+    }
+
+    .hero p {
+      color: var(--brown-light);
+      max-width: 450px;
+      margin-bottom: 35px;
+      font-size: 15px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: var(--brown-text);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .hero-btn:hover {
+      background: var(--pink-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .hero-card {
+      background: var(--cream-card);
+      border-radius: 18px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .hero-card:nth-child(2) {
+      margin-top: 30px;
+    }
+
+    .hero-card-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    .hero-card p {
+      font-size: 12px;
+      color: var(--brown-light);
+    }
+
+    /* SECCIONES GENERALE */
+    section {
+      padding: 80px 25px;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 50px;
+    }
+
+    .section-title h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(36px, 4vw, 55px);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .section-title p {
+      color: var(--brown-light);
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    /* CATALOGO */
+    .catalog-bg {
+      background: var(--white);
+    }
+
+    .flower-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .flower-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 25px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid rgba(74, 62, 61, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .flower-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      background: var(--white);
+    }
+
+    .flower-img-box {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 65px;
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .flower-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .flower-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .flower-price {
+      color: var(--pink-dark);
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    .stock-badge {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+    }
+
+    .stock-badge.available {
+      background: var(--sage);
+      color: var(--sage-dark);
+    }
+
+    .stock-badge.out-of-stock {
+      background: #f3dada;
+      color: #a35252;
+    }
+
+    .add-btn {
+      width: 100%;
+      border: none;
+      background: var(--brown-text);
+      color: var(--white);
+      padding: 12px;
+      border-radius: 50px;
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+
+    .add-btn:hover:not(:disabled) {
+      background: var(--pink-dark);
+    }
+
+    .add-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* ARMADOR / BUILDER */
+    .builder-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .builder-steps {
+      background: var(--white);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .step-group {
+      margin-bottom: 35px;
+    }
+
+    .step-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 26px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .step-num {
+      background: var(--pink-soft);
+      color: var(--brown-text);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "DM Sans", sans-serif;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+    }
+
+    .opt-btn {
+      border: 1.5px solid rgba(74, 62, 61, 0.1);
+      background: var(--cream);
+      padding: 14px;
+      border-radius: 14px;
+      text-align: center;
+      transition: all 0.2s;
+      font-size: 13px;
+    }
+
+    .opt-btn:hover {
+      border-color: var(--pink-accent);
+    }
+
+    .opt-btn.active {
+      background: var(--brown-text);
+      color: var(--white);
+      border-color: var(--brown-text);
+    }
+
+    .color-circles {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .color-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      outline: 2px solid rgba(74, 62, 61, 0.1);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .color-btn.active {
+      outline: 2px solid var(--pink-dark);
+      transform: scale(1.1);
+    }
+
+    .note-input {
+      width: 100%;
+      padding: 15px;
+      border: 1.5px solid rgba(74, 62, 61, 0.1);
+      border-radius: 14px;
+      background: var(--cream);
+      resize: vertical;
+      min-height: 80px;
+      outline: none;
+      font-size: 13px;
+    }
+
+    .note-input:focus {
+      border-color: var(--pink-accent);
+    }
+
+    /* PREVIEW RAMO */
+    .builder-preview {
+      background: var(--white);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 100px;
+      text-align: center;
+    }
+
+    .preview-canvas {
+      height: 220px;
+      background: var(--cream);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .paper-visual {
+      width: 140px;
+      height: 100px;
+      background: #f7dcdb;
+      clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+      position: absolute;
+      bottom: 20px;
+      transition: background 0.3s;
+    }
+
+    .flowers-visual {
+      font-size: 40px;
+      z-index: 2;
+      margin-bottom: 20px;
+      letter-spacing: -10px;
+    }
+
+    .preview-summary h4 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+    }
+
+    .preview-price {
+      font-size: 28px;
+      color: var(--pink-dark);
+      font-weight: 600;
+      margin: 10px 0;
+    }
+
+    .preview-details {
+      font-size: 12px;
+      color: var(--brown-light);
+      margin-bottom: 20px;
+      text-align: left;
+      border-top: 1px solid rgba(74, 62, 61, 0.08);
+      padding-top: 12px;
+    }
+
+    /* CART / PEDIDO */
+    .cart-section {
+      background: var(--white);
+    }
+
+    .cart-box {
+      max-width: 800px;
+      margin: auto;
+      background: var(--cream);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 20px;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(74, 62, 61, 0.08);
+    }
+
+    .cart-item-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .cart-item-desc {
+      font-size: 12px;
+      color: var(--brown-light);
+    }
+
+    .cart-item-price {
+      font-weight: 600;
+    }
+
+    .remove-item {
+      background: none;
+      border: none;
+      color: #c86a6a;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 2px dashed rgba(74, 62, 61, 0.15);
+    }
+
+    .cart-total span {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .ws-btn {
+      width: 100%;
+      background: #25d366;
+      color: var(--white);
+      border: none;
+      padding: 16px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .ws-btn:hover {
+      background: #1eb856;
+      transform: translateY(-2px);
+    }
+
+    /* REDES SOCIALES & FOOTER */
+    .social-section {
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-card {
+      background: var(--white);
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 14px;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s;
+    }
+
+    .social-card:hover {
+      transform: translateY(-3px);
+      color: var(--pink-dark);
+    }
+
+    footer {
+      background: var(--brown-text);
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      padding: 40px 25px;
+      font-size: 13px;
+    }
+
+    footer .logo {
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero, .builder-container {
+        grid-template-columns: 1fr;
+      }
+      .builder-preview {
+        position: static;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+      <a href="#" class="logo">bouquet<span>.</span></a>
+      <div class="nav-links">
+        <a href="#catalogo">Flores</a>
+        <a href="#personalizar">Armar Ramo</a>
+        <a href="#pedido">Mi Pedido</a>
+        <a href="#redes">Contacto</a>
+      </div>
+      <button class="cart-btn" onclick="scrollToSection('pedido')">
+        Mi Pedido
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Flores frescas & Exclusivas</div>
+      <h1>Diseñá un ramo <em>con sentimiento.</em></h1>
+      <p>Elegí tus flores favoritas, combiná los colores del envoltorio y regalá un momento especial hecho a medida.</p>
+      <a href="#personalizar" class="hero-btn">Crear mi Ramo</a>
+    </div>
+    <div class="hero-gallery">
+      <div class="hero-card">
+        <div class="hero-card-icon">🌸</div>
+        <h3>Frescura</h3>
+        <p>Selección diaria de flores de estación.</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🎀</div>
+        <h3>Alineado a vos</h3>
+        <p>Envoltorios y detalles a tu gusto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOGO DESDE SPREADSHEET -->
+  <section class="catalog-bg" id="catalogo">
+    <div class="section-title">
+      <div class="eyebrow">Nuestro Jardín</div>
+      <h2>Flores Disponibles</h2>
+      <p>Seleccioná flores individuales para sumar a tu ramo o pedir por separado.</p>
+    </div>
+    <div class="flower-grid" id="flowerGrid">
+      <p style="grid-column: 1/-1; text-align: center;">Cargando catálogo de flores...</p>
+    </div>
+  </section>
+
+  <!-- PERSONALIZADOR DE RAMO -->
+  <section id="personalizar">
+    <div class="section-title">
+      <div class="eyebrow">Paso a Paso</div>
+      <h2>Armá tu Bouquet</h2>
+      <p>Personalizá las dimensiones, envoltorio y dedicatoria.</p>
+    </div>
+
+    <div class="builder-container">
+      <div class="builder-steps">
+        
+        <!-- PASO 1: TAMAÑO -->
+        <div class="step-group">
+          <div class="step-title"><span class="step-num">1</span> Elegí el Tamaño</div>
+          <div class="options-grid">
+            <button class="opt-btn" onclick="setSize('Pequeño', 2500, this)">Pequeño<br><small>+$2.500</small></button>
+            <button class="opt-btn active" onclick="setSize('Mediano', 4000, this)">Mediano<br><small>+$4.000</small></button>
+            <button class="opt-btn" onclick="setSize('Grande', 6000, this)">Grande<br><small>+$6.000</small></button>
+          </div>
+        </div>
+
+        <!-- PASO 2: PAPEL -->
+        <div class="step-group">
+          <div class="step-title"><span class="step-num">2</span> Color de Papel Envolvente</div>
+          <div class="color-circles">
+            <button class="color-btn active" style="background: #f7dcdb;" onclick="setPaper('Rosa Pastel', '#f7dcdb', this)" title="Rosa Pastel"></button>
+            <button class="color-btn" style="background: #dbe3d5;" onclick="setPaper('Verde Salvia', '#dbe3d5', this)" title="Verde Salvia"></button>
+            <button class="color-btn" style="background: #faf6f0;" onclick="setPaper('Crema', '#faf6f0', this)" title="Crema"></button>
+            <button class="color-btn" style="background: #e2d7e8;" onclick="setPaper('Lavanda', '#e2d7e8', this)" title="Lavanda"></button>
+            <button class="color-btn" style="background: #4a3e3d;" onclick="setPaper('Kraft / Moka', '#4a3e3d', this)" title="Kraft Moka"></button>
+          </div>
+        </div>
+
+        <!-- PASO 3: DEDICATORIA -->
+        <div class="step-group">
+          <div class="step-title"><span class="step-num">3</span> Mensaje o Tarjeta</div>
+          <textarea class="note-input" id="giftNote" placeholder="Escribí una dedicatoria especial para adjuntar en la tarjeta..." oninput="updatePreview()"></textarea>
+        </div>
+
+      </div>
+
+      <!-- PREVIEW COMPRA -->
+      <div class="builder-preview">
+        <div class="preview-canvas">
+          <div class="flowers-visual" id="visualFlowers">💐</div>
+          <div class="paper-visual" id="visualPaper"></div>
+        </div>
+        <div class="preview-summary">
+          <h4>Ramo Personalizado</h4>
+          <div class="preview-price" id="builderPrice">$4.000</div>
+          <div class="preview-details" id="builderDetails">
+            • Tamaño: Mediano<br>
+            • Papel: Rosa Pastel<br>
+            • Flores agregadas: 0
+          </div>
+          <button class="add-btn" onclick="addCustomBouquetToCart()">Agregar Ramo al Pedido</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRITO DE COMPRA / RESUMEN -->
+  <section class="cart-section" id="pedido">
+    <div class="section-title">
+      <div class="eyebrow">Confirmación</div>
+      <h2>Tu Pedido</h2>
+    </div>
+
+    <div class="cart-box">
+      <div id="cartItems">
+        <p style="text-align: center; color: var(--brown-light);">No has agregado elementos a tu pedido.</p>
+      </div>
+
+      <div class="cart-total">
+        <span>Total Estimado:</span>
+        <span id="cartTotalSum">$0</span>
+      </div>
+
+      <button class="ws-btn" onclick="sendWhatsApp()">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Confirmar Pedido por WhatsApp
+      </button>
+    </div>
+  </section>
+
+  <!-- REDES SOCIALES -->
+  <section id="redes" class="social-section">
+    <div class="section-title">
+      <div class="eyebrow">Comunidad</div>
+      <h2>Seguinos en Redes</h2>
+      <p>Encontrá inspiración e ideas para tus próximos regalos.</p>
+    </div>
+    <div class="social-links">
+      <a href="https://instagram.com" target="_blank" class="social-card">Instagram • @bouquet.atelier</a>
+      <a href="https://pinterest.com" target="_blank" class="social-card">Pinterest • @bouquet.atelier</a>
+      <a href="https://tiktok.com" target="_blank" class="social-card">TikTok • @bouquet.atelier</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="logo">bouquet<span>.</span></div>
+    <p>© 2026 Bouquet Atelier. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- SCRIPT LÓGICA DE NEGOCIO -->
+  <script>
+    const SPREADSHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIW1y7sZe-VMMwJOhZTzNKpdgsioowCV7p-1_gdDYj_gsOtjxIz8dIpJ4kubHUhG9iUPunOoYMvE2a/pub?output=csv';
+    const WHATSAPP_NUMBER = '5493435231394';
+
+    // Estado de la Aplicación
+    let catalog = [];
+    let cart = [];
+    let customBouquet = {
+      size: 'Mediano',
+      sizePrice: 4000,
+      paperColor: 'Rosa Pastel',
+      paperHex: '#f7dcdb',
+      flowers: []
+    };
+
+    // Cargar Catálogo desde Google Sheets CSV
+    async function loadCatalog() {
+      try {
+        const res = await fetch(SPREADSHEET_CSV_URL);
+        const text = await res.text();
+        catalog = parseCSV(text);
+        renderCatalog();
+      } catch (err) {
+        console.error("Error al cargar el catálogo:", err);
+        document.getElementById('flowerGrid').innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: red;">No se pudo cargar el catálogo de flores.</p>';
+      }
+    }
+
+    // Parser CSV simple
+    function parseCSV(csvText) {
+      const lines = csvText.trim().split('\n');
+      const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+      
+      return lines.slice(1).map(line => {
+        const values = line.split(',').map(v => v.trim().replace(/^"|"$/g, ''));
+        let item = {};
+        headers.forEach((header, index) => {
+          item[header] = values[index] || '';
+        });
+        return {
+          name: item.nombre || item.flor || item.producto || 'Flor',
+          price: parseFloat(item.precio || item.precio_base || 0),
+          stock: parseInt(item.stock || item.cantidad || 0),
+          image: item.imagen || item.url || ''
+        };
+      });
+    }
+
+    // Renderizar Catálogo de Flores
+    function renderCatalog() {
+      const grid = document.getElementById('flowerGrid');
+      grid.innerHTML = '';
+
+      catalog.forEach((item, index) => {
+        const isAvailable = item.stock > 0;
+        const card = document.createElement('div');
+        card.className = 'flower-card';
+        card.innerHTML = `
+          <div>
+            <div class="flower-img-box">
+              ${item.image ? `<img src="${item.image}" alt="${item.name}">` : '🌸'}
+            </div>
+            <div class="flower-name">${item.name}</div>
+            <div class="flower-price">$${item.price.toLocaleString('es-AR')}</div>
+            <span class="stock-badge ${isAvailable ? 'available' : 'out-of-stock'}">
+              ${isAvailable ? `Stock: ${item.stock}` : 'Sin Stock'}
+            </span>
+          </div>
+          <button class="add-btn" ${!isAvailable ? 'disabled' : ''} onclick="addSingleFlowerToCart(${index})">
+            ${isAvailable ? 'Agregar al Pedido' : 'Agotado'}
+          </button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Lógica del Armador de Ramos
+    function setSize(name, price, btn) {
+      customBouquet.size = name;
+      customBouquet.sizePrice = price;
+      document.querySelectorAll('.step-group:nth-child(1) .opt-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updatePreview();
+    }
+
+    function setPaper(name, hex, btn) {
+      customBouquet.paperColor = name;
+      customBouquet.paperHex = hex;
+      document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updatePreview();
+    }
+
+    function updatePreview() {
+      document.getElementById('visualPaper').style.background = customBouquet.paperHex;
+      const note = document.getElementById('giftNote').value;
+      const total = customBouquet.sizePrice;
+
+      document.getElementById('builderPrice').innerText = `$${total.toLocaleString('es-AR')}`;
+      document.getElementById('builderDetails').innerHTML = `
+        • Tamaño: ${customBouquet.size}<br>
+        • Papel: ${customBouquet.paperColor}<br>
+        • Dedicatoria: ${note ? '"' + note + '"' : 'Sin nota'}
+      `;
+    }
+
+    // Agregar Ramo Personalizado al Carrito
+    function addCustomBouquetToCart() {
+      const note = document.getElementById('giftNote').value;
+      const bouquetItem = {
+        title: `Ramo Personalizado (${customBouquet.size})`,
+        desc: `Papel: ${customBouquet.paperColor} ${note ? '| Nota: "' + note + '"' : ''}`,
+        price: customBouquet.sizePrice
+      };
+      cart.push(bouquetItem);
+      updateCartUI();
+      scrollToSection('pedido');
+    }
+
+    // Agregar Flor Individual al Carrito
+    function addSingleFlowerToCart(index) {
+      const flower = catalog[index];
+      if (flower.stock <= 0) return;
+
+      cart.push({
+        title: flower.name,
+        desc: 'Flor individual de catálogo',
+        price: flower.price
+      });
+      updateCartUI();
+    }
+
+    // Actualizar UI del Carrito
+    function updateCartUI() {
+      const container = document.getElementById('cartItems');
+      const badge = document.getElementById('cartBadge');
+      const totalSum = document.getElementById('cartTotalSum');
+
+      badge.innerText = cart.length;
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: var(--brown-light);">No has agregado elementos a tu pedido.</p>';
+        totalSum.innerText = '$0';
+        return;
+      }
+
+      container.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, idx) => {
+        total += item.price;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <div>
+            <div class="cart-item-title">${item.title}</div>
+            <div class="cart-item-desc">${item.desc}</div>
+          </div>
+          <div class="cart-item-price">$${item.price.toLocaleString('es-AR')}</div>
+          <button class="remove-item" onclick="removeFromCart(${idx})">✕</button>
+        `;
+        container.appendChild(div);
+      });
+
+      totalSum.innerText = `$${total.toLocaleString('es-AR')}`;
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    // Enviar Pedido por WhatsApp
+    function sendWhatsApp() {
+      if (cart.length === 0) {
+        alert("Agregá al menos un elemento a tu pedido antes de confirmar.");
+        return;
+      }
+
+      let text = "¡Hola Bouquet Atelier! 🌸 Quiero realizar el siguiente pedido:\n\n";
+      let total = 0;
+
+      cart.forEach((item, i) => {
+        text += `${i + 1}. *${item.title}*\n   ${item.desc}\n   Precio: $${item.price.toLocaleString('es-AR')}\n\n`;
+        total += item.price;
+      });
+
+      text += `*Total Estimado: $${total.toLocaleString('es-AR')}*\n\n`;
+      text += "Quedo a la espera para coordinar la entrega y el pago. ¡Muchas gracias!";
+
+      const encodedText = encodeURIComponent(text);
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`, '_blank');
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Inicialización
+    window.onload = () => {
+      loadCatalog();
+      updatePreview();
+    };
+  </script>
+</body>
+</html>
